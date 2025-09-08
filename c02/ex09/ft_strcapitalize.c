@@ -1,3 +1,14 @@
+int	word_check(char c)
+{
+	if (c >= 'A' && c <= 'Z')
+		return (1);
+	if (c >= 'a' && c <= 'z')
+		return (2);
+	if (c >= '0' && c <= '9')
+		return (3);
+	return (0);
+}
+
 char *ft_strcapitalize(char *str)
 {
 	char *orig;
@@ -7,28 +18,22 @@ char *ft_strcapitalize(char *str)
 	is_word = 1;
 	while (*str)
 	{
-		if ((*str >= 'A' && *str <= 'Z' ) || (*str >= 'a' &&  *str <= 'z') || (*str >= '0' && *str <= '9'))
+		if (word_check(*str))
 		{
-			if (is_word == 1)
+			if (word_check(*str) == 2 && is_word == 1)
 			{
-				if (*str >= 'a' && *str <= 'z')
-					*str -= 32;
+				*str -= 32;
 				is_word = 0;
 			}
-			else
-			{
-				if (*str >= 'A' && *str <= 'Z')
+			else if (word_check(*str) == 1 && is_word == 0)
 					*str += 32;
-			}
+			is_word = 0;
 		}
 		else
-		{
 			is_word = 1;
-		}
 		str++;
 	}
 		return (orig);
-		
 }
 
 #include <stdio.h>

@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-void	print_hex(char c)
+void	print_hex(unsigned char c)
 {
 	char *hex = "0123456789abcdef";
 	char buf[2];
@@ -13,10 +13,10 @@ void	print_hex(char c)
 
 void	ft_putstr_non_printable(char *str)
 {
-	char	c;
+	unsigned char	c;
 	while (*str)
 	{
-		c = *str;
+		c = (unsigned char)*str;
 		if (c < 32 || c == 127)
 			print_hex(c);
 		else
