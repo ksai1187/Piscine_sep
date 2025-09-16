@@ -4,9 +4,9 @@
 
 typedef struct s_stock_str
 {
-    int size;   // 文字列の長さ
-    char *str;  // 文字列へのポインタ
-    char *copy; // 文字列のコピー
+    int size;   
+    char *str;  
+    char *copy;
 } t_stock_str;
 
 void	print_num(long long nbr)
@@ -85,12 +85,12 @@ t_stock_str *ft_strs_to_tab(int ac, char **av)
     {
         tab[i].size = ft_strlen(av[i]);
         tab[i].str = av[i];
-        tab[i].copy = ft_strdup(av[i]); // コピーを作成
+        tab[i].copy = ft_strdup(av[i]); 
         if (!tab[i].copy)
-            return (NULL); // エラー処理
+            return (NULL); 
         i++;
     }
-    tab[i].str = 0; // 終端
+    tab[i].str = 0; 
     return (tab);
 }
 
